@@ -1,5 +1,6 @@
 import NextAuth, { type NextAuthOptions } from "next-auth";
 import DiscordProvider from "next-auth/providers/discord";
+import { FirestoreAdapter } from "@next-auth/firebase-adapter";
 
 import { env } from "../../../env/server.mjs";
 
@@ -19,6 +20,7 @@ export const authOptions: NextAuthOptions = {
       clientId: env.DISCORD_CLIENT_ID,
       clientSecret: env.DISCORD_CLIENT_SECRET,
     }),
+
     /**
      * ...add more providers here
      *
@@ -29,6 +31,19 @@ export const authOptions: NextAuthOptions = {
      * @see https://next-auth.js.org/providers/github
      */
   ],
+  adapter: FirestoreAdapter({
+    apiKey: env.FIREBASE_APIKEY,
+    authDomain: env.FIREBASE_AUTHDOMAIN,
+    projectId: env.FIREBASE_PROJECTID,
+    storageBucket: env.FIREBASE_STORAGEBUCKET,
+    messagingSenderId: env.FIREBASE_MESSAGINGSENDERID,
+    appId: env.FIREBASE_APPID,
+    measurementId: env.FIREBASE_MEASUREMENTID,
+    emulator: {
+      host: 'localhost',
+      port: 3001
+    }
+  }),
 };
 
 export default NextAuth(authOptions);

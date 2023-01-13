@@ -20,6 +20,13 @@ export const serverSchema = z.object({
   ),
   DISCORD_CLIENT_ID: z.string(),
   DISCORD_CLIENT_SECRET: z.string(),
+  FIREBASE_APIKEY: z.string(),
+  FIREBASE_AUTHDOMAIN: z.string(),
+  FIREBASE_PROJECTID: z.string(),
+  FIREBASE_STORAGEBUCKET: z.string(),
+  FIREBASE_MESSAGINGSENDERID: z.string(),
+  FIREBASE_APPID: z.string(),
+  FIREBASE_MEASUREMENTID: z.string(),
 });
 
 /**
