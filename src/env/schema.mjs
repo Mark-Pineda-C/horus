@@ -27,6 +27,8 @@ export const serverSchema = z.object({
   FIREBASE_MESSAGINGSENDERID: z.string(),
   FIREBASE_APPID: z.string(),
   FIREBASE_MEASUREMENTID: z.string(),
+  GOOGLE_CLIENT_ID: z.string(),
+  GOOGLE_CLIENT_SECRET: z.string(),
 });
 
 /**
