@@ -1,3 +1,121 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components{
+    .global-gradient-to-r{
+        @apply bg-gradient-to-r from-[#136381] to-[#A3CBD5];
+    }
+    .global-gradient-to-l{
+        @apply bg-gradient-to-l from-[#136381] to-[#A3CBD5];
+    }
+    .global-gradient-to-t{
+        @apply bg-gradient-to-t from-[#136381] to-[#A3CBD5];
+    }
+    .global-gradient-to-b{
+        @apply bg-gradient-to-b from-[#136381] to-[#A3CBD5];
+    }
+    .password-tooltip{
+        @apply text-black font-body bg-white px-2 rounded-lg w-64;
+        animation: enterFade 0.3s ease-in-out forwards;  
+    }
+    .center-circle{
+        @apply w-32 h-32 rounded-full flex items-center justify-center;
+    }
+    .center-circle::after{
+        content: "";
+        @apply absolute w-36 h-36 border-[#136381] border-2 rounded-full;
+    }
+}   
+
+@keyframes enterFade {
+    from{
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+.bg-signin{
+    background-color: #1E202A;
+    clip-path: polygon(0 0, 60% 0, 40% 100%, 0% 100%);
+}
+
+.bg-signup{
+    background-color: #1E202A;
+    clip-path: polygon(100% 0, 60% 0, 40% 100%, 100% 100%);
+
+}
+
+/* remember check box */
+.check {
+    cursor: pointer;
+    position: relative;
+    margin: auto;
+    width: 18px;
+    height: 18px;
+    -webkit-tap-highlight-color: transparent;
+    transform: translate3d(0, 0, 0);
+  }
+  
+  /* .check:before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(34,50,84,0.03);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  } */
+  
+  .check svg {
+    position: relative;
+    z-index: 1;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: #c8ccd4;
+    stroke-width: 1.5;
+    transform: translate3d(0, 0, 0);
+    transition: all 0.2s ease;
+  }
+  
+  .check svg path {
+    stroke-dasharray: 60;
+    stroke-dashoffset: 0;
+  }
+  
+  .check svg polyline {
+    stroke-dasharray: 22;
+    stroke-dashoffset: 66;
+  }
+  
+  .check:hover:before {
+    opacity: 1;
+  }
+  
+  .check:hover svg {
+    stroke: #136381;
+  }
+  
+  #cbx:checked + .check svg {
+    stroke: #136381;
+  }
+  
+  #cbx:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+  }
+  
+  #cbx:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+  }
+  

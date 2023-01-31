@@ -21,10 +21,10 @@ const _serverEnv = serverSchema.safeParse(serverEnv);
 
 if (!_serverEnv.success) {
   console.error(
-    "❌ Invalid environment variables:\n",
+    "❌ Invalid server environment variables:\n",
     ...formatErrors(_serverEnv.error.format()),
   );
-  throw new Error("Invalid environment variables");
+  throw new Error("Invalid server environment variables");
 }
 
 for (let key of Object.keys(_serverEnv.data)) {
